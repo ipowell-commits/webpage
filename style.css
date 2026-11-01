@@ -1,4 +1,8 @@
 /* Main page styling */
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: Arial, sans-serif;
   background-color: #eef5fb;
@@ -22,13 +26,14 @@ header {
 h2 {
   color: #164e78;
   border-bottom: 2px solid #4da8da;
-  padding-bottom: 5px;
+  padding-bottom: 8px;
+  margin-bottom: 16px;
 }
 
-/* Navigation styling */
+/* Navigation styling using Flexbox */
 nav {
   background-color: #d4e9f7;
-  padding: 10px;
+  padding: 16px;
   margin-bottom: 20px;
   border: 2px solid #4da8da;
   border-radius: 8px;
@@ -38,12 +43,16 @@ nav ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
-  text-align: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
 }
 
 nav li {
-  display: inline-block;
-  margin: 5px 15px;
+  margin: 0;
 }
 
 nav a {
@@ -57,17 +66,26 @@ nav a:hover {
   text-decoration: underline;
 }
 
+/* Main layout using CSS Grid */
+main {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
 /* Class selector */
 .content-box {
   background-color: white;
   padding: 20px;
-  margin: 20px 0;
+  margin: 0;
   border: 2px solid #b7d8ec;
   border-radius: 10px;
+  min-width: 0;
 }
 
 /* Image styling */
 img {
+  display: block;
   max-width: 100%;
   height: auto;
   border: 3px solid #4da8da;
@@ -81,8 +99,53 @@ img {
   background-color: #164e78;
   color: white;
   text-align: center;
-  padding: 15px;
-  margin-top: 25px;
+  padding: 16px;
+  margin-top: 24px;
   border: 2px solid #0d344f;
   border-radius: 8px;
+}
+
+/* Tablet layout */
+@media screen and (max-width: 768px) {
+  main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  body {
+    margin: 16px;
+  }
+
+  header {
+    padding: 20px;
+  }
+}
+
+/* Mobile layout */
+@media screen and (max-width: 480px) {
+  body {
+    margin: 8px;
+  }
+
+  main {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  header {
+    padding: 16px;
+  }
+
+  header h1 {
+    font-size: 24px;
+  }
+
+  .content-box {
+    padding: 16px;
+  }
 }
