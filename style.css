@@ -11,6 +11,29 @@ body {
   line-height: 1.6;
 }
 
+/* Skip link for keyboard accessibility */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 10px;
+  background-color: white;
+  color: #164e78;
+  padding: 10px;
+  border: 2px solid #0d344f;
+  border-radius: 5px;
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  left: 10px;
+}
+
+/* Keyboard focus styling */
+a:focus-visible {
+  outline: 3px solid #0d344f;
+  outline-offset: 4px;
+}
+
 /* Header styling */
 header {
   background-color: #164e78;
@@ -43,7 +66,6 @@ nav ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,8 +83,9 @@ nav a {
   font-weight: bold;
 }
 
+/* Improved hover contrast */
 nav a:hover {
-  color: #087ca7;
+  color: #07516f;
   text-decoration: underline;
 }
 
